@@ -1,0 +1,47 @@
+@import './themes/login.css';
+@import './themes/dashboard.css';
+
+.App {
+  text-align: center;
+  color: black;
+}
+
+.App-header {
+  background-color: #222;
+  height: 30px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+  float: left;
+}
+
+.App-intro {
+  font-size: large;
+}
+.input {
+  width: 500px;
+  height: 30px;
+}
+.btn {
+  width: 60px;
+  height: 20px;
+}
+.btn-primary {
+  background-color: blue;
+  color: white;
+}
+.customInput {
+  /* position: relative; */
+  margin-top: 10px;
+}
+.label {
+  font-size: 20px;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
