@@ -8,6 +8,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect, Link} from 'react-rout
 import LoginComponent from './components/login';
 import DashboardComoponent from './components/dashboardComponent';
 import { HomeComponent } from './components/homeComponent';
+import * as login from './store/actions/loginActions';
 
 
 class App extends Component {
@@ -19,23 +20,24 @@ class App extends Component {
   render() {
 
     const style = { color: 'white', float: 'right', margin: '5px' }
-    const { login } = this.props;
-    const loginButtonText = login.loggedIn ? 'Logout' : 'Login'
+    const { login, userName } = this.props;
+    const loginButtonText = login.loggedIn ? 'Logout' : 'Login';
    
     return [
       <Provider store = { this.props.store }>
       <Router>
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">ShoppingCart</h1>
+          {/* <h1 className="App-title">ShoppingCart</h1> */}
           <Link to="/" style={style}><span><i className="fa fa-home"></i></span>Home</Link>
-          <Link to="/login" style={style}><span><i className="fa fa-user"></i></span>{loginButtonText}</Link>
+          <Link to="/login" style={style} onClick={this.props.loginActions.Logout}>{loginButtonText}</Link>
+          <Link to="/profile" style={style}><span><i className="fa fa-user">{login.userName}</i></span></Link>
         </header>
         <div className="section">
               <Route path="/" exact component={HomeComponent}/>
               <Route path="/dashboard" exact component={DashboardComoponent}/>
               <Route path="/login" component={LoginComponent}/> 
-              <Redirect to="/" component={HomeComponent}/>
+              <Redirect to="/"/>
         </div>
       </div>
       </Router>
@@ -49,4 +51,12 @@ const mapStateToProps = (state, ownProps) => {
   return { ...state }
 }
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => {
+  debugger
+  return {
+    loginActions: bindActionCreators(login, dispatch)
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
