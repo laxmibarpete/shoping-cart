@@ -1,5 +1,6 @@
 @import './themes/login.css';
 @import './themes/dashboard.css';
+@import './themes/profile.css';
 
 .App {
   text-align: center;

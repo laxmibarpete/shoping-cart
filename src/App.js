@@ -9,6 +9,7 @@ import LoginComponent from './components/login';
 import DashboardComoponent from './components/dashboardComponent';
 import { HomeComponent } from './components/homeComponent';
 import * as login from './store/actions/loginActions';
+import ProfileComponent from './components/profileComponent';
 
 
 class App extends Component {
@@ -20,8 +21,10 @@ class App extends Component {
   render() {
 
     const style = { color: 'white', float: 'right', margin: '5px' }
-    const { login, userName } = this.props;
+    const { login } = this.props;
     const loginButtonText = login.loggedIn ? 'Logout' : 'Login';
+    debugger
+    const showUserData = login.userName ? <Link to="/profile" style={style}><span><i className="fa fa-user">{login.userName}</i></span></Link> : ''
    
     return [
       <Provider store = { this.props.store }>
@@ -31,12 +34,13 @@ class App extends Component {
           {/* <h1 className="App-title">ShoppingCart</h1> */}
           <Link to="/" style={style}><span><i className="fa fa-home"></i></span>Home</Link>
           <Link to="/login" style={style} onClick={this.props.loginActions.Logout}>{loginButtonText}</Link>
-          <Link to="/profile" style={style}><span><i className="fa fa-user">{login.userName}</i></span></Link>
+          {showUserData}
         </header>
         <div className="section">
               <Route path="/" exact component={HomeComponent}/>
               <Route path="/dashboard" exact component={DashboardComoponent}/>
               <Route path="/login" component={LoginComponent}/> 
+              <Route path="/profile" component={ProfileComponent}/> 
               <Redirect to="/"/>
         </div>
       </div>
