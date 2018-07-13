@@ -1,6 +1,5 @@
 import { CHANGE_CAT_TYPE } from "../actionTypes/constants";
 const InitialState = {
-  currentSelCatType: "all",
   filteredList: [],
   inStockData: [
     {
@@ -17,7 +16,7 @@ const InitialState = {
     },
     {
       name: "D",
-      type: "ino "
+      type: "iron "
     },
     {
       name: "E",
@@ -26,7 +25,7 @@ const InitialState = {
   ]
 };
 
-export default function dashboard(state = InitialState, action) {
+const dashboard = (state = InitialState, action) => {
   switch (action.type) {
     case CHANGE_CAT_TYPE:
       console.log("payload", action.payload);
@@ -41,3 +40,5 @@ export default function dashboard(state = InitialState, action) {
       return state;
   }
 }
+
+export default dashboard;

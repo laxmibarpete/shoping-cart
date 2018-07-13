@@ -1,23 +1,30 @@
 import { LOGIN, LOGOUT } from '../actionTypes/constants';
 const InitialState = {
   loggedIn: false,
+  errorMessage: '',
   userName: '',
-  password: ''
+  password: '',
+  userDetails: {
+    name: "Amit Mundra",
+    age: 22,
+    industry: 'IT',
+    mobile: 6360951002,
+    email: 'amit.mundra52@gmail.com',
+  }
 }
 
-export default function login(state = InitialState, action) {
-  // const { email, password } = action.payload;;
+const login = (state = InitialState, action) => {
   switch (action.type) {
     case LOGIN:
     debugger
-      if (action.payload.email === 'laxmi' && action.payload.password === 'laxmi'){
+      if (action.payload.email === 'amit' && action.payload.password === 'amit'){
         return {
             ...state,
-            loggedIn: true, userName: action.payload.email
+            loggedIn: true, userName: 'Amit Mundra', errorMessage: ''
         }
       }
       return {
-          ...state, loggedIn: false
+          ...state, loggedIn: false, errorMessage: 'Invalid Credential'
       }
     case LOGOUT:
     debugger
@@ -29,3 +36,5 @@ export default function login(state = InitialState, action) {
       return state
   }
 }
+
+export default login;
