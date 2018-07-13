@@ -17,6 +17,9 @@ class App extends Component {
     super(props);
     debugger;
   }
+  getDerivedStateFromProps(props, state) {
+      debugger
+  }
 
   render() {
 
@@ -24,17 +27,21 @@ class App extends Component {
     const { login } = this.props;
     const loginButtonText = login.loggedIn ? 'Logout' : 'Login';
     debugger
-    const showUserData = login.userName ? <Link to="/profile" style={style}><span><i className="fa fa-user">{login.userName}</i></span></Link> : ''
+    const showUserData = login.userName ? <Link to="/profile" style={style}><span><i className="fa fa-user">{login.userName}</i></span></Link> : '';
+    const showDashboard = login.loggedIn ? <Link to="/dashboard" style={style}><span><i className="fa fa-dashboard"></i></span>Dashboard</Link> : ''
    
     return [
       <Provider store = { this.props.store }>
       <Router>
       <div className="App">
         <header className="App-header">
-          {/* <h1 className="App-title">ShoppingCart</h1> */}
-          <Link to="/" style={style}><span><i className="fa fa-home"></i></span>Home</Link>
-          <Link to="/login" style={style} onClick={this.props.loginActions.Logout}>{loginButtonText}</Link>
+          <Link to="/" className="App-title">ShoppingCart</Link>
+          <Link to="/login" style={style} onClick={this.props.loginActions.Logout}><span><i class="fa fa-sign-out"></i></span>{loginButtonText}</Link>
           {showUserData}
+          {showDashboard}
+          
+
+
         </header>
         <div className="section">
               <Route path="/" exact component={HomeComponent}/>
