@@ -5,7 +5,22 @@ const ProfileComponent = (props) => {
     debugger
     return (
         <div className="profile">
-            <h2>Hello {props.login.userName} !</h2>
+            <table className="table">
+                <tr>
+                    <th>Name</th>
+                    <th>Mobile Number</th>
+                    <th>Email Address</th>
+                    <th>Age</th>
+                    <th>Industry</th>
+                </tr>
+                <tr>
+                    <td>{props.login.userDetails.name}</td>
+                    <td>{props.login.userDetails.mobile}</td>
+                    <td>{props.login.userDetails.email}</td>
+                    <td>{props.login.userDetails.age}</td>
+                    <td>{props.login.userDetails.industry}</td>
+                </tr>
+            </table>
         </div>
     )
 }

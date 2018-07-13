@@ -24,11 +24,10 @@ class LoginComponent extends Component {
     render() {
         debugger
         let { login, loginActions } = this.props;
-        let showErrorMsg = false;
         const userObj = {};
         let handelLogin = login.loggedIn ? loginActions.Logout : loginActions.Login;
-        let errComp = showErrorMsg ? <h3>Invalid credentials</h3> : 'Wrong credentials';
-        const style = { color: 'red', backgroundColor: 'yellow' }  
+        const style = { color: 'red', backgroundColor: 'yellow' };
+        const buttonStyle = {backgroundColor: 'blue', height: '30px', width: '200px', marginTop: '10px'} 
 
         function handelClick() {
             debugger
@@ -42,10 +41,12 @@ class LoginComponent extends Component {
         }
 
     return (
-        <div className="login"><span style={style}>{errComp}</span>
+        <div class="base">
+        <div className="login"><span style={style}>{login.errorMessage}</span>
             <CustomInputComponent placeholder="Enter Emial/UserId" type="text" name="email" id="email" className="input" onChange={handelInputChange}/>
             <CustomInputComponent placeholder="Enter password" type="password" name="password" id="password" className="input" onChange={handelInputChange}/>
-            <CustomButtonComponent label="Login" className="btn btn-primary" onClick={ handelClick }/>
+            <CustomButtonComponent label="Login" className="btn btn-primary" onClick={ handelClick } style={buttonStyle}/>
+        </div>
         </div>
     )
   }

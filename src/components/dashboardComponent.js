@@ -22,8 +22,8 @@ const DashboardComoponent = (props) => {
             <CustomInputComponent type="radio" name="radio" id="platinum" label="Platinum" className="radio" onChange={handelInputChange}/>
             <CustomInputComponent type="radio" name="radio" id="iron" label="Iron" className="radio" onChange={handelInputChange}/>
             <CustomInputComponent type="radio" name="radio" id="all" label="all" className="radio" onChange={handelInputChange}/>
-            <div>
-            <ItemListComponent inStockDataList={stockData}/>
+            <div className="product-details">
+                <ItemListComponent inStockDataList={stockData}/>
             </div>
         </div>
     )
