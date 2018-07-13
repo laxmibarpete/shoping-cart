@@ -1,6 +1,14 @@
 .login {
     position: relative;
     top: 100px;
-    text-align: center
+    text-align: center;
+    background-color: white;
+    width: 700px;
+    height: 150px;
+    left: 550px;
+    padding: 20px;
 }
-
+.base {
+    background-color: darkgray;
+    height: 787px;
+}

@@ -10,5 +10,12 @@
 .radio-label {
     font-size: 80px;
     margin: 10px;
-    /* float: left; */
+}
+
+.product-details {
+    width: 250px;
+    height: 300px;
+    position: relative;
+    left: 800px;
+    top: 105px
 }
